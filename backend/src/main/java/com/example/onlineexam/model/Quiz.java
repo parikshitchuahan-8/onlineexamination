@@ -1,6 +1,8 @@
 package com.example.onlineexam.model;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,7 +17,7 @@ public class Quiz {
     @Column(nullable = false)
     private int durationMinutes; // Timer duration in minutes
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "quiz")
-    private List<Question> questions;
+    private List<Question> questions= new ArrayList<>();
 
     // Getters and Setters
     public Long getId() { return id; }

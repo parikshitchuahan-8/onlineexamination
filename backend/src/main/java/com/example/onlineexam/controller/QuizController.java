@@ -62,4 +62,17 @@ public class QuizController {
         Result result = quizService.calculateResult(user, id, submission);
         return ResponseEntity.ok(result);
     }
+    @PostMapping("/ai/create")
+    public ResponseEntity<Quiz> createAIQuiz(
+            @RequestParam String title,
+            @RequestParam String topic,
+            @RequestParam String difficulty,
+            @RequestParam int count) {
+
+        Quiz quiz = quizService.createAIQuiz(
+                title, topic, difficulty, count);
+
+        return ResponseEntity.ok(quiz);
+    }
+
 }

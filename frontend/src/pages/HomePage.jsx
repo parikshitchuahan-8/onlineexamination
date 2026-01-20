@@ -38,6 +38,7 @@ const HomePage = () => {
                         <Link to={`/quiz/${quiz.id}`} className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors">
                             Start Quiz
                         </Link>
+
                     </div>
                 ))}
             </div>

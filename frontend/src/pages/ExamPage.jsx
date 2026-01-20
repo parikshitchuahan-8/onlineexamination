@@ -60,7 +60,11 @@ const ExamPage = () => {
                     <h1 className="text-2xl font-bold">{quiz.title}</h1>
                     <p className="text-gray-600">Question {currentQuestionIndex + 1} of {questions.length}</p>
                 </div>
-                <Timer initialMinutes={quiz.durationMinutes} onTimeUp={handleTimeUp} />
+                <Timer
+                  initialMinutes={quiz.durationMinutes || 10}
+                  onTimeUp={handleTimeUp}
+                />
+
             </div>
 
             {currentQuestion && (
