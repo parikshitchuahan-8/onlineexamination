@@ -1,19 +1,16 @@
-# -------- BUILD STAGE --------
 FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 
-COPY . .
+COPY backend/ ./backend
+WORKDIR /app/backend
 
 RUN chmod +x mvnw
-RUN java -version
-RUN ./mvnw -version
 RUN ./mvnw clean package -DskipTests
 
-# -------- RUN STAGE --------
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/backend/target/*.jar app.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","app.jar","--server.port=8080"]
