@@ -22,7 +22,14 @@ function App() {
           <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
           <Route path="/quiz/:id" element={<ProtectedRoute><ExamPage /></ProtectedRoute>} />
           <Route path="/results/:id" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
-          <Route path="/ai-quiz" element={<AiQuizGenerator />} />
+         <Route
+           path="/ai-quiz"
+           element={
+             <ProtectedRoute>
+               <AiQuizGenerator />
+             </ProtectedRoute>
+           }
+         />
 
         </Routes>
       </main>
