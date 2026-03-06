@@ -50,6 +50,7 @@ public class SecurityConfig {
 
                         // public APIs
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/quizzes/ai/**").permitAll()
 
                         // protected APIs
                         .anyRequest().authenticated()
