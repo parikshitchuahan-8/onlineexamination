@@ -22,31 +22,20 @@ public class AIQuestionService {
             String difficulty,
             int count
     ) {
-
         String prompt = """
-You are an API that generates exam questions.
-
-Return ONLY valid JSON.
-
-Generate %d multiple choice questions.
+Generate %d MCQ questions.
 
 Topic: %s
 Difficulty: %s
 
-Rules:
-- Exactly 4 options
-- Only ONE correct answer
-- Return ONLY JSON
-- No explanation
-- No markdown
-
-Format:
+Return JSON:
 
 [
 {
-"question":"question text",
+"question":"string",
 "options":["A","B","C","D"],
-"correctAnswerIndex":0
+"correctAnswerIndex":0,
+"explanation":"why answer is correct"
 }
 ]
 """.formatted(count, topic, difficulty);

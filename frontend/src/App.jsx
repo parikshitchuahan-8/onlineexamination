@@ -8,6 +8,9 @@ import ExamPage from './pages/ExamPage';
 import ResultsPage from './pages/ResultPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import AiQuizGenerator from "./pages/AiQuizGenerator";
+import InterviewPage from "./pages/InterviewPage";
+import StudyAssistant from "./pages/StudyAssistant";
+import CodingInterview from "./pages/CodingInterview";
 
 
 function App() {
@@ -30,7 +33,9 @@ function App() {
              </ProtectedRoute>
            }
          />
-
+<Route path="/interview" element={<InterviewPage />} />
+<Route path="/study" element={<StudyAssistant />} />
+<Route path="/coding" element={<CodingInterview />} />
         </Routes>
       </main>
     </div>

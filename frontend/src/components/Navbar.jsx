@@ -15,25 +15,48 @@ const Navbar = () => {
     <header className="bg-white shadow-md">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
 
-        {/* Left side */}
+        {/* Left Side */}
         <div className="flex items-center space-x-4">
+
           <Link to="/" className="text-2xl font-bold text-blue-600">
             ExamPortal
           </Link>
 
-          {/* AI Quiz button – best practice */}
           {auth.user && (
-            <Link
-              to="/ai-quiz"
-              className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
-            >
-              Generate AI Quiz
-            </Link>
+            <>
+              <Link
+                to="/ai-quiz"
+                className="px-3 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
+              >
+                AI Quiz
+              </Link>
+
+              <Link
+                to="/interview"
+                className="px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+              >
+                AI Interview
+              </Link>
+
+              <Link
+                to="/study"
+                className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+              >
+                AI Study
+              </Link>
+              <Link
+                to="/coding"
+                className="px-3 py-2 bg-orange-600 text-white rounded-md"
+              >
+                AI Coding
+              </Link>
+            </>
           )}
         </div>
 
-        {/* Right side */}
+        {/* Right Side */}
         <div className="flex items-center space-x-4">
+
           {auth.user ? (
             <>
               <span className="hidden sm:block font-medium">
@@ -49,7 +72,7 @@ const Navbar = () => {
 
               <button
                 onClick={handleLogout}
-                className="px-4 py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 transition-colors"
+                className="px-4 py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600"
               >
                 Logout
               </button>
@@ -57,12 +80,14 @@ const Navbar = () => {
           ) : (
             <Link
               to="/login"
-              className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors"
+              className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700"
             >
               Login
             </Link>
           )}
+
         </div>
+
       </nav>
     </header>
   );
