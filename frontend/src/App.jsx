@@ -9,7 +9,7 @@ import ResultsPage from './pages/ResultPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import AiQuizGenerator from "./pages/AiQuizGenerator";
 import InterviewPage from "./pages/InterviewPage";
-import StudyAssistant from "./pages/StudyAssistant";
+import StudyAssistant from "./pages/StudyAssistance";
 import CodingInterview from "./pages/CodingInterview";
 
 
