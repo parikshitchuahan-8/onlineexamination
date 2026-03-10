@@ -53,9 +53,9 @@ public class SecurityConfig {
                         .requestMatchers("/api/quizzes/ai/**").permitAll()
 
                         // ADD THESE
-                        .requestMatchers("/api/interview/**").permitAll()
-                        .requestMatchers("/api/coding/**").permitAll()
                         .requestMatchers("/api/study/**").permitAll()
+                        .requestMatchers("/api/interview/**").authenticated()
+                        .requestMatchers("/api/coding/**").authenticated()
 
                         .anyRequest().authenticated()
 
