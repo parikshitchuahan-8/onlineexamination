@@ -31,23 +31,17 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
                 .csrf(csrf -> csrf.disable())
-                .cors(cors -> cors.disable())
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
                         .anyRequest().permitAll()
                 );
 
         return http.build();
-
-
-//        http.addFilterBefore(
-//                jwtAuthenticationFilter,
-//                UsernamePasswordAuthenticationFilter.class
-//        );
-
     }
 
     @Bean
@@ -67,7 +61,7 @@ public class SecurityConfig {
 
         config.setAllowCredentials(true);
 
-        config.addAllowedOrigin("https://onlineexamination.vercel.app");
+        config.addAllowedOriginPattern("*");
 
         config.addAllowedHeader("*");
 
