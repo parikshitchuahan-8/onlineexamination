@@ -45,15 +45,20 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
 
-                        // allow preflight requests
+                        // allow preflight
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
                         // public APIs
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/quizzes/ai/**").permitAll()
 
-                        // protected APIs
+                        // ADD THESE
+                        .requestMatchers("/api/interview/**").permitAll()
+                        .requestMatchers("/api/coding/**").permitAll()
+                        .requestMatchers("/api/study/**").permitAll()
+
                         .anyRequest().authenticated()
+
                 );
 
         http.addFilterBefore(
